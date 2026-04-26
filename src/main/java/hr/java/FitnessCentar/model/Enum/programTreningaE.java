@@ -1,6 +1,6 @@
 package hr.java.FitnessCentar.model.Enum;
 
-public enum programTreninga {
+public enum programTreningaE {
     CrossFit,
     Bodybuilding,
     FunkcionalniTrening,

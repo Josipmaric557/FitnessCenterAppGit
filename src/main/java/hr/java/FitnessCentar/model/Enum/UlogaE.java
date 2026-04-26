@@ -1,6 +1,6 @@
 package hr.java.FitnessCentar.model.Enum;
 
-public enum Uloga {
+public enum UlogaE {
     Korisnik,
     Admin,
     Trener
