@@ -1,8 +1,9 @@
 package hr.java.FitnessCentar.model.entity;
 
 import java.util.List;
+import java.util.Objects;
 
-public class Gym {
+public class Gym implements Comparable<Gym>{
     private int id;
     private String naziv;
     private String adresa;
@@ -16,6 +17,24 @@ public class Gym {
     List<Oprema> oprema;
     List<Kategorija> kategorija1;
     List<programTreninga> programTreninga;
+
+
+    public Gym(){
+
+    }
+
+    public Gym(int id, String naziv, String adresa, String radnoVrijeme, Double cijenaClanarine, int ukupnaPovrsina, String fotoPath, Kategorija kategorija){
+
+        this.id = id;
+        this.naziv = naziv;
+        this.adresa = adresa;
+        this.radnoVrijeme = radnoVrijeme;
+        this.cijenaClanarine = cijenaClanarine;
+        this.ukupnaPovrsina = ukupnaPovrsina;
+        this.fotoPath = fotoPath;
+        this.kategorija = kategorija;
+
+    }
 
     public int GetId(){
         return id;
@@ -111,5 +130,40 @@ public class Gym {
 
     public void SetProgramTreninga(List<programTreninga> programTreninga){
         this.programTreninga = programTreninga;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Gym gym = (Gym) o;
+        return id == gym.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Gym{" +
+                "id=" + id +
+                ", naziv='" + naziv + '\'' +
+                ", adresa='" + adresa + '\'' +
+                ", radnoVrijeme='" + radnoVrijeme + '\'' +
+                ", cijenaClanarine=" + cijenaClanarine +
+                ", ukupnaPovrsina=" + ukupnaPovrsina +
+                ", fotoPath='" + fotoPath + '\'' +
+                ", kategorija=" + kategorija +
+                ", trener=" + trener +
+                ", oprema=" + oprema +
+                ", kategorija1=" + kategorija1 +
+                ", programTreninga=" + programTreninga +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Gym o) {
+        return this.id - o.id;
     }
 }

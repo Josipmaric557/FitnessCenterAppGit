@@ -3,6 +3,8 @@ package hr.java.FitnessCentar.model.entity;
 import hr.java.FitnessCentar.model.Enum.TezinaTreningaE;
 import hr.java.FitnessCentar.model.Enum.programTreningaE;
 
+import java.util.Objects;
+
 public class programTreninga {
     private int id;
     private String naziv;
@@ -10,6 +12,20 @@ public class programTreninga {
     private String opis;
     private int trajanjeMin;
     TezinaTreningaE  tezinaTreninga;
+
+    public programTreninga(){
+
+    }
+
+    public programTreninga(int id, String naziv, programTreningaE programTreningaE, String opis, int trajanjeMin, TezinaTreningaE tezinaTreninga) {
+        this.id = id;
+        this.naziv = naziv;
+        this.programTreningaE = programTreningaE;
+        this.opis = opis;
+        this.trajanjeMin = trajanjeMin;
+        this.tezinaTreninga = tezinaTreninga;
+    }
+
 
     public int Getid(){
         return id;
@@ -57,5 +73,29 @@ public class programTreninga {
 
     public void SetTezinaTreningaE(TezinaTreningaE tezinaTreninga){
         this.tezinaTreninga = tezinaTreninga;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        programTreninga that = (programTreninga) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "programTreninga{" +
+                "id=" + id +
+                ", naziv='" + naziv + '\'' +
+                ", programTreningaE=" + programTreningaE +
+                ", opis='" + opis + '\'' +
+                ", trajanjeMin=" + trajanjeMin +
+                ", tezinaTreninga=" + tezinaTreninga +
+                '}';
     }
 }

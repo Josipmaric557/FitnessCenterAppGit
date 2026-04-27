@@ -1,12 +1,27 @@
 package hr.java.FitnessCentar.model.entity;
 
-public class Trener {
+import java.util.Objects;
+
+public class Trener implements Comparable<Trener>{
     private int id;
     private String ime;
     private String prezime;
     private String certifikacije;
     private String specijalizacije;
     private String PhotoPath;
+
+    public Trener(){
+
+    }
+
+    public Trener(int id, String ime, String prezime, String certifikacije, String specijalizacije, String PhotoPath) {
+        this.id = id;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.certifikacije = certifikacije;
+        this.specijalizacije = specijalizacije;
+        this.PhotoPath = PhotoPath;
+    }
 
     public int GetId(){
         return id;
@@ -55,4 +70,34 @@ public class Trener {
     public void SetPhotoPath(String PhotoPath){
         this.PhotoPath = PhotoPath;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Trener trener = (Trener) o;
+        return id == trener.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Trener{" +
+                "id=" + id +
+                ", ime='" + ime + '\'' +
+                ", prezime='" + prezime + '\'' +
+                ", certifikacije='" + certifikacije + '\'' +
+                ", specijalizacije='" + specijalizacije + '\'' +
+                ", PhotoPath='" + PhotoPath + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Trener o) {
+        return this.id-o.id;
+    }
+
 }
