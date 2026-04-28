@@ -7,6 +7,7 @@ public class Gym implements Comparable<Gym>{
     private int id;
     private String naziv;
     private String adresa;
+    private String grad;
     private String radnoVrijeme;
     private double cijenaClanarine;
     private int ukupnaPovrsina;
@@ -58,6 +59,14 @@ public class Gym implements Comparable<Gym>{
 
     public void SetAdresa(String adresa){
         this.adresa = adresa;
+    }
+
+    public String GetGrad(){
+        return grad;
+    }
+
+    public void SetGrad(String grad){
+        this.grad = grad;
     }
 
     public String GetRadnoVrijeme(){
@@ -150,6 +159,7 @@ public class Gym implements Comparable<Gym>{
                 "id=" + id +
                 ", naziv='" + naziv + '\'' +
                 ", adresa='" + adresa + '\'' +
+                ", grad='" + grad + '\'' +
                 ", radnoVrijeme='" + radnoVrijeme + '\'' +
                 ", cijenaClanarine=" + cijenaClanarine +
                 ", ukupnaPovrsina=" + ukupnaPovrsina +
