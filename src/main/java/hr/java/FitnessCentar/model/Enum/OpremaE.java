@@ -5,5 +5,22 @@ public enum OpremaE {
     CardioOprema,
     CalisthenicsOprema,
     BorilackaOprema,
-    OporavakOprema
+    OporavakOprema;
+
+    public static OpremaE fromId(int id) {
+        switch (id) {
+            case 1:
+                return TreningSnageOprema;
+            case 2:
+                return CardioOprema;
+            case 3:
+                return CalisthenicsOprema;
+            case 4:
+                return BorilackaOprema;
+            case 5:
+                return OporavakOprema;
+            default:
+                throw new IllegalArgumentException("Nepoznata vrijednost: " + id);
+        }
+    }
 }

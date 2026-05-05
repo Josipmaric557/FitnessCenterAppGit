@@ -1,6 +1,7 @@
 package hr.java.FitnessCentar.model.entity;
 
 import hr.java.FitnessCentar.model.Enum.OpremaE;
+import hr.java.FitnessCentar.model.Enum.vrstaGymaE;
 
 import java.util.Objects;
 
@@ -9,21 +10,28 @@ public class Oprema {
     private String Naziv;
     private String Proizvodac;
     private int Kolicina;
-    Gym gym_ID;
-    Kategorija kategorija_id;
+    vrstaGymaE vrsta;
     OpremaE opremaE;
 
     public Oprema(){
 
     }
 
-    public Oprema(int id, String Naziv, String Proizvodac, int Kolicina, Gym gym_ID, Kategorija kategorija_id, OpremaE opremaE){
+    public Oprema(String Naziv, String Proizvodac, int Kolicina, vrstaGymaE vrsta, OpremaE opremaE){
+        this.Naziv = Naziv;
+        this.Proizvodac = Proizvodac;
+        this.Kolicina = Kolicina;
+        this.vrsta= vrsta;
+        this.opremaE = opremaE;
+
+    }
+
+    public Oprema(int id, String Naziv, String Proizvodac, int Kolicina, vrstaGymaE vrsta, OpremaE opremaE){
         this.id = id;
         this.Naziv = Naziv;
         this.Proizvodac = Proizvodac;
         this.Kolicina = Kolicina;
-        this.gym_ID = gym_ID;
-        this.kategorija_id = kategorija_id;
+        this.vrsta= vrsta;
         this.opremaE = opremaE;
 
     }
@@ -60,19 +68,12 @@ public class Oprema {
         this.Kolicina = Kolicina;
     }
 
-    public Gym GetGym(){
-        return gym_ID;
+    public vrstaGymaE GetVrstaGyma(){
+        return vrsta;
     }
 
-    public void SetGym(Gym gym_ID){
-        this.gym_ID = gym_ID;
-    }
-    public Kategorija Getkategorija(){
-        return kategorija_id;
-    }
-
-    public void Setkategorija(Kategorija kategorija_id){
-        this.kategorija_id = kategorija_id;
+    public void SetvrstaGymaE(vrstaGymaE vrsta){
+        this.vrsta = vrsta;
     }
 
     public OpremaE GetOpremaE(){
@@ -102,8 +103,7 @@ public class Oprema {
                 ", Naziv='" + Naziv + '\'' +
                 ", Proizvodac='" + Proizvodac + '\'' +
                 ", Kolicina=" + Kolicina +
-                ", gym_ID=" + gym_ID +
-                ", kategorija_id=" + kategorija_id +
+                ", gym_ID=" + vrsta +
                 ", opremaE=" + opremaE +
                 '}';
     }

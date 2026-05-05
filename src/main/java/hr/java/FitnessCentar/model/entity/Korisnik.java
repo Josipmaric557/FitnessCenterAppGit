@@ -14,6 +14,13 @@ public class Korisnik implements Comparable<Korisnik> {
     //mozemo napraviti i sucelje za trenera ako budem imao vremena kada se on ulogira da zna koje korisnike ima danas u kolko sati koji trening
     //da si moze radit plan
 
+    public Korisnik(String KorisnikIme, String email, String lozinka, UlogaE uloga){
+        this.korisnikIme = KorisnikIme;
+        this.email = email;
+        this.lozinka = lozinka;
+        this.uloga = uloga;
+    }
+
     public Korisnik(int id, String KorisnikIme, String email, String lozinka, UlogaE uloga){
         this.id = id;
         this.korisnikIme = KorisnikIme;
