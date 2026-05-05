@@ -1,9 +1,13 @@
 package hr.java.FitnessCentar;
 
 import hr.java.FitnessCentar.Repository.Implementation.GymRepositoryImpl;
+import hr.java.FitnessCentar.Repository.Implementation.KategorijaRepositoryImpl;
 import hr.java.FitnessCentar.Repository.interfaces.GymRepository;
+import hr.java.FitnessCentar.Repository.interfaces.KategorijaRepository;
 import hr.java.FitnessCentar.Util.DB_Connection;
+import hr.java.FitnessCentar.model.Enum.vrstaGymaE;
 import hr.java.FitnessCentar.model.entity.Gym;
+import hr.java.FitnessCentar.model.entity.Kategorija;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -14,8 +18,14 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 
+
 public class Main {
     public static void main(String[] args) throws Exception {
+
+
+
+    }
+        /*
         System.out.println("Hello");
 
         GymRepository repo = new GymRepositoryImpl();
@@ -86,4 +96,5 @@ public class Main {
         }
     }
 
+         */
 }
