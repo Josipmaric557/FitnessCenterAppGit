@@ -1,6 +1,6 @@
 package hr.java.FitnessCentar.model.entity;
 
-import java.util.List;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Gym implements Comparable<Gym>{
@@ -9,31 +9,32 @@ public class Gym implements Comparable<Gym>{
     private String adresa;
     private String grad;
     private String radnoVrijeme;
-    private double cijenaClanarine;
+    private BigDecimal cijenaClanarine;
     private int ukupnaPovrsina;
     private String fotoPath;
-    Kategorija kategorija;
-
-    List<Trener> trener;
-    List<Oprema> oprema;
-    List<Kategorija> kategorija1;
-    List<programTreninga> programTreninga;
 
 
-    public Gym(){
 
-    }
-
-    public Gym(int id, String naziv, String adresa, String radnoVrijeme, Double cijenaClanarine, int ukupnaPovrsina, String fotoPath, Kategorija kategorija){
-
-        this.id = id;
+    public Gym(String naziv, String adresa, String grad, String radnoVrijeme, BigDecimal cijenaClanarine, int ukupnaPovrsina, String fotoPath){
         this.naziv = naziv;
         this.adresa = adresa;
+        this.grad = grad;
         this.radnoVrijeme = radnoVrijeme;
         this.cijenaClanarine = cijenaClanarine;
         this.ukupnaPovrsina = ukupnaPovrsina;
         this.fotoPath = fotoPath;
-        this.kategorija = kategorija;
+    }
+
+    public Gym(int id, String naziv, String adresa, String grad, String radnoVrijeme, BigDecimal cijenaClanarine, int ukupnaPovrsina, String fotoPath){
+
+        this.id = id;
+        this.naziv = naziv;
+        this.adresa = adresa;
+        this.grad = grad;
+        this.radnoVrijeme = radnoVrijeme;
+        this.cijenaClanarine = cijenaClanarine;
+        this.ukupnaPovrsina = ukupnaPovrsina;
+        this.fotoPath = fotoPath;
 
     }
 
@@ -77,11 +78,11 @@ public class Gym implements Comparable<Gym>{
         this.radnoVrijeme = radnoVrijeme;
     }
 
-    public double GetCijenaClanarine(){
+    public BigDecimal GetCijenaClanarine(){
         return cijenaClanarine;
     }
 
-    public void SetCijenaClanarine(double cijenaClanarine){
+    public void SetCijenaClanarine(BigDecimal cijenaClanarine){
         this.cijenaClanarine = cijenaClanarine;
     }
 
@@ -93,7 +94,7 @@ public class Gym implements Comparable<Gym>{
         this.ukupnaPovrsina = ukupnaPovrsina;
     }
 
-    private String GetFotoPath(){
+    public String GetFotoPath(){
         return fotoPath;
     }
 
@@ -101,45 +102,8 @@ public class Gym implements Comparable<Gym>{
         this.fotoPath = fotoPath;
     }
 
-    public Kategorija GetKategorija(){
-        return kategorija;
-    }
 
-    private void SetKategorija(Kategorija kategorija){
-        this.kategorija = kategorija;
-    }
 
-    public List<Trener> GetTrener(){
-        return trener;
-    }
-
-    public void SetTrener(List<Trener> trener){
-        this.trener = trener;
-    }
-
-    public List<Oprema> GetOprema(){
-        return oprema;
-    }
-
-    public void SetOprema(List<Oprema> oprema){
-        this.oprema = oprema;
-    }
-
-    public List<Kategorija> Getkategorija(){
-        return kategorija1;
-    }
-
-    public void SetKategorija(List<Kategorija> kategorija){
-        this.kategorija1 = kategorija;
-    }
-
-    public List<programTreninga> GetProgramTreninga(){
-        return programTreninga;
-    }
-
-    public void SetProgramTreninga(List<programTreninga> programTreninga){
-        this.programTreninga = programTreninga;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -164,11 +128,6 @@ public class Gym implements Comparable<Gym>{
                 ", cijenaClanarine=" + cijenaClanarine +
                 ", ukupnaPovrsina=" + ukupnaPovrsina +
                 ", fotoPath='" + fotoPath + '\'' +
-                ", kategorija=" + kategorija +
-                ", trener=" + trener +
-                ", oprema=" + oprema +
-                ", kategorija1=" + kategorija1 +
-                ", programTreninga=" + programTreninga +
                 '}';
     }
 
