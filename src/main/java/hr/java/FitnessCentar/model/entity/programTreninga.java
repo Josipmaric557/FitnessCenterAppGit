@@ -8,22 +8,30 @@ import java.util.Objects;
 public class programTreninga {
     private int id;
     private String naziv;
-    programTreningaE programTreningaE;
+    programTreningaE program;
     private String opis;
     private int trajanjeMin;
-    TezinaTreningaE  tezinaTreninga;
+    TezinaTreningaE  tezina;
 
     public programTreninga(){
 
     }
 
-    public programTreninga(int id, String naziv, programTreningaE programTreningaE, String opis, int trajanjeMin, TezinaTreningaE tezinaTreninga) {
-        this.id = id;
+    public programTreninga(String naziv, programTreningaE program, String opis, int trajanjeMin, TezinaTreningaE tezina){
         this.naziv = naziv;
-        this.programTreningaE = programTreningaE;
+        this.program = program;
         this.opis = opis;
         this.trajanjeMin = trajanjeMin;
-        this.tezinaTreninga = tezinaTreninga;
+        this.tezina = tezina;
+    }
+
+    public programTreninga(int id, String naziv, programTreningaE program, String opis, int trajanjeMin, TezinaTreningaE tezina) {
+        this.id = id;
+        this.naziv = naziv;
+        this.program = program;
+        this.opis = opis;
+        this.trajanjeMin = trajanjeMin;
+        this.tezina = tezina;
     }
 
 
@@ -44,11 +52,11 @@ public class programTreninga {
     }
 
     public programTreningaE GetProgramTreningaE(){
-        return programTreningaE;
+        return program;
     }
 
-    public void SetProgramTreningaE(programTreningaE programTreningaE){
-        this.programTreningaE = programTreningaE;
+    public void SetProgramTreningaE(programTreningaE program){
+        this.program = program;
     }
 
     public String GetOpis(){
@@ -68,11 +76,11 @@ public class programTreninga {
     }
 
     public TezinaTreningaE GetTezinaTreningaE(){
-        return tezinaTreninga;
+        return tezina;
     }
 
     public void SetTezinaTreningaE(TezinaTreningaE tezinaTreninga){
-        this.tezinaTreninga = tezinaTreninga;
+        this.tezina = tezina;
     }
 
     @Override
@@ -92,10 +100,10 @@ public class programTreninga {
         return "programTreninga{" +
                 "id=" + id +
                 ", naziv='" + naziv + '\'' +
-                ", programTreningaE=" + programTreningaE +
+                ", programTreningaE=" + program +
                 ", opis='" + opis + '\'' +
                 ", trajanjeMin=" + trajanjeMin +
-                ", tezinaTreninga=" + tezinaTreninga +
+                ", tezinaTreninga=" + tezina +
                 '}';
     }
 }

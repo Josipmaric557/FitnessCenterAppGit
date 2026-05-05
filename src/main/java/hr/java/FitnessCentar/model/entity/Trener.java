@@ -14,6 +14,14 @@ public class Trener implements Comparable<Trener>{
 
     }
 
+    public Trener(String ime, String prezime, String certifikacije, String specijalizacije, String PhotoPath) {
+        this.ime = ime;
+        this.prezime = prezime;
+        this.certifikacije = certifikacije;
+        this.specijalizacije = specijalizacije;
+        this.PhotoPath = PhotoPath;
+    }
+
     public Trener(int id, String ime, String prezime, String certifikacije, String specijalizacije, String PhotoPath) {
         this.id = id;
         this.ime = ime;
