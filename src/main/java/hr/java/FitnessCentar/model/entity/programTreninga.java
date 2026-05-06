@@ -13,6 +13,7 @@ public class programTreninga {
     private int trajanjeMin;
     TezinaTreningaE  tezina;
 
+
     public programTreninga(){
 
     }
@@ -80,6 +81,22 @@ public class programTreninga {
     }
 
     public void SetTezinaTreningaE(TezinaTreningaE tezinaTreninga){
+        this.tezina = tezina;
+    }
+
+    public programTreningaE getProgramTreningaE() {
+        return program;
+    }
+
+    public void setProgramTreningaE(programTreningaE program) {
+        this.program = program;
+    }
+
+    public TezinaTreningaE getTezinaTreningaE() {
+        return tezina;
+    }
+
+    public void setTezinaTreningaE(TezinaTreningaE tezina) {
         this.tezina = tezina;
     }
 

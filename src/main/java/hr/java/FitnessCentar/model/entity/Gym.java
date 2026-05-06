@@ -1,6 +1,8 @@
 package hr.java.FitnessCentar.model.entity;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Gym implements Comparable<Gym>{
@@ -13,6 +15,11 @@ public class Gym implements Comparable<Gym>{
     private int ukupnaPovrsina;
     private String fotoPath;
 
+
+    private List<Trener> treneri = new ArrayList<>();
+    private List<programTreninga> programi = new ArrayList<>();
+    private List<Oprema> oprema = new ArrayList<>();
+    private Kategorija kategorija;
 
 
     public Gym(String naziv, String adresa, String grad, String radnoVrijeme, BigDecimal cijenaClanarine, int ukupnaPovrsina, String fotoPath){
@@ -102,6 +109,23 @@ public class Gym implements Comparable<Gym>{
         this.fotoPath = fotoPath;
     }
 
+    public List<Trener> getTreneri() {
+        return treneri;
+    }
+
+    public List<programTreninga> getProgrami() {
+        return programi;
+    }
+
+    public List<Oprema> getOprema() {
+        return oprema;
+    }
+
+    public Kategorija getKategorija() { return kategorija; }
+
+    public void setKategorija(Kategorija kat){
+        this.kategorija = kat;
+    }
 
 
 
