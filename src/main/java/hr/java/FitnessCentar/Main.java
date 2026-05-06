@@ -19,63 +19,66 @@ import java.util.Optional;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        TrenerRepository oprema = new TrenerRepositoryImpl();
-
-        Trener opr = new Trener("josip", "maric", "asdfgdfg", "sdfasg", "sdsdg");
-
-        oprema.save(opr);
 
 
-        Trener kor2 = new Trener("JOSIP", "maric", "asdfgdfg", "sdfasg", "sdsdg");
+    }
+}
+        /*
+        try {
+            GymKategorijaRepository gkRepo = new GymKategorijaImpl();
 
+            // IMPORTANT: these IDs must already exist in DB
+            int kategorijaId = 8;
+            int gymId = 5;
 
-        // ID korisnika koji želiš update-at (mora postojati u bazi)
-        int id = 1;
+            gkRepo.addKategorijaToGym(kategorijaId, gymId);
 
-        oprema.update(id, kor2);
+            System.out.println("Kategorija successfully added to gym!");
 
-        try{
-
-            oprema.delete(1);
-
-        }catch(Exception e){
-            System.out.println(e);
-        }
-
-        try{
-            Optional<Trener> gymopt = oprema.findById(9);
-            if(gymopt.isPresent()){
-                Trener gym2 = gymopt.get();
-                System.out.println(gym2.getIme());
-            }else{
-                System.out.println("Gym ne postoji");
-            }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
 
         try {
-            List<Trener> gyms = oprema.findAll();
+            GymKategorijaRepository gkRepo = new GymKategorijaImpl();
 
-            if (gyms.isEmpty()) {
-                System.out.println("No gyms found in database.");
-            } else {
+            int gymId = 2;
+            int kategorijaId = 3;
 
-                for (Trener gym3 : gyms) {
-                    System.out.println("ID: " + gym3.GetId());
-                    System.out.println("Naziv: " + gym3.toString());
-                    System.out.println("----------------------");
-                }
+            gkRepo.removeKategorijaFromGym(kategorijaId, gymId);
+
+            System.out.println("Kategorija removed from gym!");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            GymKategorijaRepository gkRepo = new GymKategorijaImpl();
+
+            int gymId = 4;
+
+            List<Kategorija> kategorije = gkRepo.getKategorijaByGym(gymId);
+
+            System.out.println("Kategorije for gym ID: " + gymId);
+            System.out.println("--------------------------------");
+
+            for (Kategorija k : kategorije) {
+                System.out.println(
+                        "ID: " + k.GetNaziv()
+                );
+            }
+
+            if (kategorije.isEmpty()) {
+                System.out.println("No categories found for this gym.");
             }
 
         } catch (Exception e) {
-            System.err.println("Error while fetching gyms:");
             e.printStackTrace();
         }
-    }
-}
-        /*
+
+        -----------------------------------------------------------------------
         OpremaRepository oprema = new OpremaRepositoryImpl();
 
      Oprema opr = new Oprema("sdfd", "sdfsdfsd", 5, vrstaGymaE.CrossFitGym, OpremaE.CalisthenicsOprema);
