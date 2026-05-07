@@ -6,7 +6,10 @@ import hr.java.FitnessCentar.model.entity.programTreninga;
 import java.util.List;
 
 public class TrenerProgramTreningaService {
+ // napraviti validation kad bude exceptione radili
 
+    //
+     //
     private final TrenerProgramTreningaRepository repo;
 
     public TrenerProgramTreningaService(TrenerProgramTreningaRepository repo) {
