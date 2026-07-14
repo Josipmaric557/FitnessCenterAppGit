@@ -20,7 +20,7 @@ public class GymTrenerService {
     public void removeTrenerFromGym(int GymID, int TrenerID) throws Exception {
         repo.removeTrenerFromGym(GymID, TrenerID);
     }
-    public List<Trener> getOpremaByGymId(int GymID) throws Exception {
+    public List<Trener> getTreneriByGymId(int GymID) throws Exception {
         return repo.getTrenersByGym(GymID);
     }
 }

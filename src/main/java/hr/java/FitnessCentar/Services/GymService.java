@@ -1,6 +1,8 @@
 package hr.java.FitnessCentar.Services;
 
+import hr.java.FitnessCentar.Repository.Implementation.GymRepositoryImpl;
 import hr.java.FitnessCentar.Repository.interfaces.GymRepository;
+import hr.java.FitnessCentar.Util.ImageUtil;
 import hr.java.FitnessCentar.model.entity.*;
 
 import java.math.BigDecimal;
@@ -29,13 +31,29 @@ public class GymService extends BaseService<Gym, Integer> {
 
     @Override
     public void delete(Integer id) throws Exception {
+        Gym gym = repository.findById(id).orElseThrow(() -> new Exception("Gym not found!"));
+
+        if (gym.GetFotoPath() != null && !gym.GetFotoPath().isBlank()) {
+            ImageUtil.deleteImage(gym.GetFotoPath());
+        }
+
+
+
         super.delete(id);
+    }
+
+
+
+    @Override
+    public List<Gym> findAll() throws Exception {
+        return repository.findAll();
     }
 
     public Gym getGymByIdOrError(Integer id) throws Exception {
         return findById(id)
                 .orElseThrow(() -> new Exception("Gym nepostoji"));
     }
+
 
 
 
@@ -69,9 +87,7 @@ public class GymService extends BaseService<Gym, Integer> {
             throw new IllegalArgumentException("Gym ukupna povrsina nesmije biti prazan");
         }
 
-        if(gym.GetFotoPath() == null || gym.GetFotoPath().isBlank()){
-            throw new IllegalArgumentException("Gym foto nesmije biti prazan");
-        }
+
     }
 
     public List<Gym> sortByPrice() throws Exception{
@@ -108,38 +124,4 @@ public class GymService extends BaseService<Gym, Integer> {
                 .filter(g->g.GetCijenaClanarine().compareTo(price) <= 0)
                 .findFirst();
     }
-
-
-    private void assignTrainerToGym(Gym gym, Trener trener){
-        gym.getTreneri().add(trener);
-    }
-
-    private void removeTrainerFromGym(Gym gym, Trener trener){
-        gym.getTreneri().remove(trener);
-    }
-
-    private void assignProgramToGym(Gym gym, programTreninga program){
-        gym.getProgrami().add(program);
-    }
-
-    private void removeProgramFromGym(Gym gym, programTreninga program){
-        gym.getProgrami().remove(program);
-    }
-
-    private void assignOpremaToGym(Gym gym, Oprema oprema){
-        gym.getOprema().add(oprema);
-    }
-
-    private void removeOpremaFromGym(Gym gym, Oprema oprema){
-        gym.getOprema().remove(oprema);
-    }
-
-    private void assignKategorijaToGym(Gym gym, Kategorija kategorija){
-        gym.setKategorija(kategorija);
-    }
-
-
-
-
-
 }

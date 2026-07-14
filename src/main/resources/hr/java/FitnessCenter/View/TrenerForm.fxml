@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="750" prefWidth="1200" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.java.FitnessCentar.Controllers.TrenerController">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color:#0f172a;">
+
+            <padding>
+                <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+
+            <Label style="-fx-text-fill:white;                           -fx-font-size:20px;                           -fx-font-weight:bold;" text="TRENER MANAGEMENT" />
+        </HBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <HBox spacing="20">
+
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- LEFT: TABLE -->
+            <VBox prefWidth="750" spacing="10" style="-fx-background-color:white;                          -fx-border-color:#dcdcdc;">
+
+                <padding>
+                    <Insets bottom="15" left="15" right="15" top="15" />
+                </padding>
+
+                <Label style="-fx-font-size:18px;                               -fx-font-weight:bold;" text="Popis trenera" />
+
+                <TextField fx:id="searchField" onKeyReleased="#search" promptText="Pretraži trenera..." />
+
+                <TableView fx:id="trenerTable" VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="idColumn" prefWidth="60" text="ID" />
+                        <TableColumn fx:id="imeColumn" prefWidth="140" text="Ime" />
+                        <TableColumn fx:id="prezimeColumn" prefWidth="140" text="Prezime" />
+                        <TableColumn fx:id="specColumn" prefWidth="180" text="Specijalizacija" />
+                        <TableColumn fx:id="certColumn" minWidth="0.0" prefWidth="141.0" text="Certifikati" />
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+            <!-- RIGHT: FORM -->
+            <VBox prefWidth="400" spacing="10" style="-fx-background-color:white;                          -fx-border-color:#dcdcdc;">
+
+                <padding>
+                    <Insets bottom="15" left="15" right="15" top="15" />
+                </padding>
+
+                <Label style="-fx-font-size:18px;                               -fx-font-weight:bold;" text="Detalji trenera" />
+
+                <Separator />
+
+                <Label text="Ime" />
+                <TextField fx:id="imeField" />
+
+                <Label text="Prezime" />
+                <TextField fx:id="prezimeField" />
+
+                <Label text="Specijalizacija" />
+                <TextField fx:id="specField" />
+
+                <Label text="Certifikati" />
+                <TextField fx:id="certField" />
+
+                <Label text="Slika (path)" />
+                <TextField fx:id="photoField" />
+
+                <HBox spacing="10">
+
+                    <Button onAction="#save" style="-fx-background-color:#16a34a;                                    -fx-text-fill:white;" text="Spremi" />
+
+                    <Button onAction="#update" style="-fx-background-color:#2563eb;                                    -fx-text-fill:white;" text="Update" />
+
+                </HBox>
+
+                <Button onAction="#delete" style="-fx-background-color:#dc2626;                                -fx-text-fill:white;" text="Obriši" />
+
+                <Separator />
+
+                <Label style="-fx-font-weight:bold;" text="Info" />
+
+                <Label style="-fx-text-fill:#64748b;" text="Treneri se mogu dodijeliti gymovima i programima treninga." wrapText="true" />
+
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>

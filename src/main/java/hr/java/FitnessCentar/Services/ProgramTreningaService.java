@@ -44,7 +44,7 @@ public class ProgramTreningaService extends BaseService<programTreninga, Integer
         if(pt.GetNaziv()==null || pt.GetNaziv().isBlank()){
             throw new IllegalArgumentException("Naziv program treninga je null");
         }
-        if(pt.getProgramTreningaE() == null){
+        if(pt.GetProgramTreningaE() == null){
             throw new IllegalArgumentException("Program treningaE je null");
         }
         if(pt.GetOpis()==null || pt.GetOpis().isBlank()){
@@ -53,8 +53,8 @@ public class ProgramTreningaService extends BaseService<programTreninga, Integer
         if(pt.GetTrajanjeMin() <= 0){
             throw new IllegalArgumentException("Trajanje minimum program treninga je 0");
         }
-        if(pt.getTezinaTreningaE()==null){
-            throw new IllegalArgumentException("Tezina program treninga je null");
+        if(pt.GetTezinaTreningaE()==null){
+            throw new IllegalArgumentException("Tezina treninga je null");
         }
     }
 }

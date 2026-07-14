@@ -19,7 +19,7 @@ public class GymKategorijaRepositoryImpl implements GymKategorijaRepository {
 
 
     @Override
-    public void addKategorijaToGym(int KategorijaID, int GymID) throws Exception{
+    public void addKategorijaToGym(int GymID, int KategorijaID) throws Exception{
         try(Connection con = DB_Connection.getInstance();
             CallableStatement stmt = con.prepareCall("CALL insert_kategorija_to_gym(?,?)")){
 
@@ -33,7 +33,7 @@ public class GymKategorijaRepositoryImpl implements GymKategorijaRepository {
     }
 
     @Override
-    public void removeKategorijaFromGym(int KategorijaID, int GymID) throws Exception{
+    public void removeKategorijaFromGym(int GymID, int KategorijaID) throws Exception{
         try(Connection con = DB_Connection.getInstance();
             CallableStatement stmt = con.prepareCall("CALL delete_kategorija_from_gym(?,?)")){
 

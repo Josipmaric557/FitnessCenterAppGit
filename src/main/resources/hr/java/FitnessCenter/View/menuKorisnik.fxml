@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hr.java.FitnessCentar.controller.UserDashboardController"
+            prefWidth="1300"
+            prefHeight="800">
+
+    <!-- ================= TOP ================= -->
+    <top>
+
+        <VBox>
+
+            <HBox spacing="15"
+                  style="-fx-background-color:#0f172a;"
+                  alignment="CENTER_LEFT">
+
+                <padding>
+                    <Insets top="15" right="20" bottom="15" left="20"/>
+                </padding>
+
+                <Label text="🏋 FITNESS CENTAR - USER DASHBOARD"
+                       style="-fx-text-fill:white;
+                              -fx-font-size:20px;
+                              -fx-font-weight:bold;"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label fx:id="usernameLabel"
+                       text="USER"
+                       style="-fx-text-fill:#60a5fa;
+                              -fx-font-weight:bold;"/>
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+    <!-- ================= CENTER ================= -->
+    <center>
+
+        <HBox spacing="20">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- LEFT FILTER PANEL -->
+            <VBox prefWidth="300"
+                  spacing="10"
+                  style="-fx-background-color:white;
+                         -fx-border-color:#dcdcdc;">
+
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label text="FILTERI"
+                       style="-fx-font-size:16px;
+                              -fx-font-weight:bold;"/>
+
+                <TextField fx:id="searchField"
+                           promptText="Pretraži gym..." />
+
+                <ComboBox fx:id="cityComboBox"
+                          promptText="Grad"/>
+
+                <ComboBox fx:id="categoryComboBox"
+                          promptText="Kategorija"/>
+
+                <ComboBox fx:id="programComboBox"
+                          promptText="Program"/>
+
+                <Button text="FILTER" onAction="#applyFilters"/>
+                <Button text="RESET" onAction="#resetFilters"/>
+
+                <Separator/>
+
+                <Label text="Brzi search"/>
+                <TextField fx:id="quickSearchField"
+                           promptText="Ime gym-a..."
+                           onKeyReleased="#liveSearch"/>
+
+            </VBox>
+
+            <!-- CENTER TABLE -->
+            <VBox spacing="10"
+                  style="-fx-background-color:white;
+                         -fx-border-color:#dcdcdc;"
+                  VBox.vgrow="ALWAYS">
+
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label text="GYM LISTA"
+                       style="-fx-font-size:18px;
+                              -fx-font-weight:bold;"/>
+
+                <TableView fx:id="gymTable"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+                        <TableColumn fx:id="nameColumn" text="Naziv" prefWidth="180"/>
+                        <TableColumn fx:id="cityColumn" text="Grad" prefWidth="120"/>
+                        <TableColumn fx:id="priceColumn" text="Cijena" prefWidth="100"/>
+                        <TableColumn fx:id="categoryColumn" text="Kategorija" prefWidth="140"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+            <!-- RIGHT DETAILS -->
+            <VBox prefWidth="320"
+                  spacing="10"
+                  style="-fx-background-color:white;
+                         -fx-border-color:#dcdcdc;">
+
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label text="DETALJI GYM-a"
+                       style="-fx-font-size:16px;
+                              -fx-font-weight:bold;"/>
+
+                <Label fx:id="gymNameLabel" text="-" />
+                <Label fx:id="gymAddressLabel" text="-" />
+                <Label fx:id="gymWorkingHoursLabel" text="-" />
+                <Label fx:id="gymPriceLabel" text="-" />
+
+                <Separator/>
+
+                <Label text="Treneri"/>
+                <ListView fx:id="trainerListView"/>
+
+                <Label text="Programi"/>
+                <ListView fx:id="programListView"/>
+
+            </VBox>
+
+        </HBox>
+
+    </center>
+
+</BorderPane>

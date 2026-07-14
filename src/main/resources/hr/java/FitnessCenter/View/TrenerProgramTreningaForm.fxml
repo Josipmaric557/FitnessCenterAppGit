@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="750" prefWidth="1200" xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hr.java.FitnessCentar.Controllers.TrenerProgramTreningaController">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color:#0f172a;">
+
+            <padding>
+                <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+
+            <Label style="-fx-text-fill:white;                           -fx-font-size:20px;                           -fx-font-weight:bold;" text="TRENER - PROGRAM TRENINGA MANAGEMENT" />
+        </HBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <HBox spacing="20">
+
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- LEFT: TRAINERS -->
+            <VBox prefWidth="400" spacing="10" style="-fx-background-color:white;                          -fx-border-color:#dcdcdc;">
+
+                <padding>
+                    <Insets bottom="15" left="15" right="15" top="15" />
+                </padding>
+
+                <Label style="-fx-font-size:18px;                               -fx-font-weight:bold;" text="Treneri" />
+
+                <TextField fx:id="searchTrenerField" promptText="Pretraži trenera..." />
+
+                <TableView fx:id="trenerTable" VBox.vgrow="ALWAYS">
+
+                    <columns>
+                        <TableColumn fx:id="trenerIdColumn" prefWidth="60" text="ID" />
+                        <TableColumn fx:id="trenerImeColumn" prefWidth="140" text="Ime" />
+                        <TableColumn fx:id="trenerSpecColumn" prefWidth="151.0" text="Specijalizacija" />
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+            <!-- MIDDLE: PROGRAMS -->
+            <VBox prefWidth="400" spacing="10" style="-fx-background-color:white;                          -fx-border-color:#dcdcdc;">
+
+                <padding>
+                    <Insets bottom="15" left="15" right="15" top="15" />
+                </padding>
+
+                <Label style="-fx-font-size:18px;                               -fx-font-weight:bold;" text="Programi treninga" />
+
+                <TextField fx:id="searchProgramField" promptText="Pretraži program..." />
+
+                <TableView fx:id="programTable" VBox.vgrow="ALWAYS">
+
+                    <columns>
+                        <TableColumn fx:id="programIdColumn" prefWidth="60" text="ID" />
+                        <TableColumn fx:id="programNazivColumn" prefWidth="150" text="Naziv" />
+                        <TableColumn fx:id="programTezinaColumn" prefWidth="120" text="Težina" />
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+            <!-- RIGHT: ASSIGNMENT -->
+            <VBox prefWidth="350" spacing="10" style="-fx-background-color:white;                          -fx-border-color:#dcdcdc;">
+
+                <padding>
+                    <Insets bottom="15" left="15" right="15" top="15" />
+                </padding>
+
+                <Label style="-fx-font-size:18px;                               -fx-font-weight:bold;" text="Dodjela programa treneru" />
+
+                <Separator />
+
+                <Label text="Odabrani trener:" />
+                <Label fx:id="selectedTrenerLabel" style="-fx-font-weight:bold;" text="-- nijedan --" />
+
+                <Label text="Odabrani program:" />
+                <Label fx:id="selectedProgramLabel" style="-fx-font-weight:bold;" text="-- nijedan --" />
+
+                <Separator />
+
+                <Button fx:id="assignButton" onAction="#assignProgram" prefWidth="300" style="-fx-background-color:#16a34a;                                -fx-text-fill:white;                                -fx-font-weight:bold;" text="➕ Dodijeli program" />
+
+                <Button fx:id="removeButton" onAction="#removeProgram" prefWidth="300" style="-fx-background-color:#dc2626;                                -fx-text-fill:white;                                -fx-font-weight:bold;" text="➖ Ukloni program" />
+
+                <Separator />
+
+                <Label style="-fx-font-weight:bold;" text="Programi trenera:" />
+
+                <ListView fx:id="assignedProgramList" VBox.vgrow="ALWAYS" />
+
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>

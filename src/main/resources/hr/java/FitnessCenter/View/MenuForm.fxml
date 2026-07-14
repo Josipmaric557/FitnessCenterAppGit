@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.java.FitnessCentar.Controllers.MenuController">
+
+    <!-- ================= TOP: MENU BAR ================= -->
+    <top>
+        <VBox>
+
+            <MenuBar>
+
+                <Menu text="Home">
+                    <MenuItem onAction="#openMenuForm" text="Dashboard" />
+                </Menu>
+
+                <Menu text="Entities">
+                    <MenuItem onAction="#openGym" text="Gym" />
+                    <MenuItem onAction="#openKategorija" text="Kategorija" />
+                    <MenuItem onAction="#openKorisnik" text="Korisnik" />
+                    <MenuItem onAction="#openOprema" text="Oprema" />
+                    <MenuItem onAction="#openProgramTreninga" text="Program Treninga" />
+                    <MenuItem onAction="#openTrener" text="Trener" />
+                </Menu>
+
+                <Menu text="Relations">
+                    <MenuItem onAction="#openGymKategorija" text="Gym - Kategorija" />
+                    <MenuItem onAction="#openGymOprema" text="Gym - Oprema" />
+                    <MenuItem onAction="#openGymProgramTreninga" text="Gym - Program Treninga" />
+                    <MenuItem onAction="#openGymTrener" text="Gym - Trener" />
+                    <MenuItem onAction="#openTrenerProgramTreninga" text="Trener - Program Treninga" />
+                </Menu>
+
+                <Menu text="Data">
+                    <MenuItem   text="Export XML" />
+                    <MenuItem onAction="#importXml" text="Import XML" />
+                    <MenuItem  text="Backup" />
+                </Menu>
+
+                <Menu text="Admin">
+                    <MenuItem onAction="#obrisiSve" text="Reset Database" />
+                    <MenuItem text="Load Sample Data" />
+                </Menu>
+
+                <Menu text="User">
+                    <MenuItem fx:id="someButton"  onAction="#openLogin" text="Logout" />
+                </Menu>
+
+            </MenuBar>
+
+        </VBox>
+    </top>
+
+    <!-- ================= LEFT QUICK NAV ================= -->
+    <left>
+        <VBox prefWidth="220" spacing="10" style="-fx-background-color:#111827;">
+
+            <padding>
+                <Insets left="10" right="10" top="15" />
+            </padding>
+
+            <Label style="-fx-text-fill:white; -fx-font-weight:bold;" text="QUICK ACCESS" />
+
+            <Button maxWidth="Infinity" onAction="#openMenuForm" text="Dashboard" />
+            <Separator />
+
+            <Button maxWidth="Infinity" onAction="#openGym" text="Gym" />
+            <Button maxWidth="Infinity" onAction="#openKategorija" text="Kategorija" />
+            <Button maxWidth="Infinity" onAction="#openKorisnik" text="Korisnik" />
+            <Button maxWidth="Infinity" onAction="#openOprema" text="Oprema" />
+            <Button maxWidth="Infinity" onAction="#openProgramTreninga" text="Program Treninga" />
+            <Button maxWidth="Infinity" onAction="#openTrener" text="Trener" />
+
+            <Separator />
+
+            <Button maxWidth="Infinity" onAction="#openGymKategorija" text="Gym - Kategorija" />
+            <Button maxWidth="Infinity" onAction="#openGymOprema" text="Gym - Oprema" />
+            <Button maxWidth="Infinity" onAction="#openGymProgramTreninga" text="Gym - Program Treninga" />
+            <Button maxWidth="Infinity" onAction="#openGymTrener" text="Gym - Trener" />
+            <Button maxWidth="Infinity" onAction="#openTrenerProgramTreninga" text="Trener - Program Treninga" />
+
+        </VBox>
+    </left>
+
+    <!-- ================= CENTER DASHBOARD ================= -->
+    <center>
+
+        <fx:include source="Menu2Form.fxml" />
+    </center>
+
+    <!-- ================= RIGHT CONTEXT ================= -->
+    <right>
+        <!-- intentionally empty -->
+    </right>
+
+    <!-- ================= BOTTOM STATUS ================= -->
+    <bottom>
+        <HBox prefHeight="44.0" prefWidth="984.0" style="-fx-background-color:#0f172a;">
+
+            <padding>
+                <Insets bottom="8" left="15" top="8" />
+            </padding>
+
+            <Label fx:id="statusLabel" style="-fx-text-fill:white;" text="System ready" />
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -2,8 +2,12 @@ package hr.java.FitnessCentar.model.entity;
 
 import hr.java.FitnessCentar.model.Enum.TezinaTreningaE;
 import hr.java.FitnessCentar.model.Enum.programTreningaE;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 
 import java.util.Objects;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 
 public class programTreninga {
     private int id;
@@ -81,24 +85,9 @@ public class programTreninga {
     }
 
     public void SetTezinaTreningaE(TezinaTreningaE tezinaTreninga){
-        this.tezina = tezina;
+        this.tezina = tezinaTreninga;
     }
 
-    public programTreningaE getProgramTreningaE() {
-        return program;
-    }
-
-    public void setProgramTreningaE(programTreningaE program) {
-        this.program = program;
-    }
-
-    public TezinaTreningaE getTezinaTreningaE() {
-        return tezina;
-    }
-
-    public void setTezinaTreningaE(TezinaTreningaE tezina) {
-        this.tezina = tezina;
-    }
 
     @Override
     public boolean equals(Object o) {

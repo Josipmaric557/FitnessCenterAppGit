@@ -10,6 +10,8 @@ public class Kategorija {
     private String opis;
     vrstaGymaE vrsta;
 
+    public Kategorija() {}
+
     public Kategorija(String naziv, String opis, vrstaGymaE vrsta){
         this.naziv = naziv;
         this.opis = opis;

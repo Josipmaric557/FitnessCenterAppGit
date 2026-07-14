@@ -1,6 +1,11 @@
 package hr.java.FitnessCentar.model.entity;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+
 import java.util.Objects;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 
 public class Trener implements Comparable<Trener>{
     private int id;

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hr.java.FitnessCentar.Controllers.OpremaController"
+            prefWidth="1200"
+            prefHeight="750">
+
+    <!-- TOP -->
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="10"
+              style="-fx-background-color:#0f172a;">
+
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label text="OPREMA - MANAGEMENT"
+                   style="-fx-text-fill:white;
+                          -fx-font-size:20px;
+                          -fx-font-weight:bold;"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+
+        <HBox spacing="20">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- LEFT: TABLE -->
+            <VBox prefWidth="750"
+                  spacing="10"
+                  style="-fx-background-color:white;
+                         -fx-border-color:#dcdcdc;">
+
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label text="Popis opreme"
+                       style="-fx-font-size:18px;
+                              -fx-font-weight:bold;"/>
+
+                <TextField fx:id="searchField"
+                           promptText="Pretraži opremu..."
+                           onKeyReleased="#search"/>
+
+                <TableView fx:id="opremaTable"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+                        <TableColumn fx:id="nazivColumn" text="Naziv" prefWidth="150"/>
+                        <TableColumn fx:id="proizvodacColumn" text="Proizvođač" prefWidth="150"/>
+                        <TableColumn fx:id="kolicinaColumn" text="Količina" prefWidth="100"/>
+                        <TableColumn fx:id="tipColumn" text="Tip" prefWidth="120"/>
+                        <TableColumn fx:id="vrstaGymColumn" text="Vrsta gym-a" prefWidth="120"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+            <!-- RIGHT: FORM -->
+            <VBox prefWidth="400"
+                  spacing="10"
+                  style="-fx-background-color:white;
+                         -fx-border-color:#dcdcdc;">
+
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label text="Oprema detalji"
+                       style="-fx-font-size:18px;
+                              -fx-font-weight:bold;"/>
+
+                <Separator/>
+
+                <Label text="Naziv"/>
+                <TextField fx:id="nazivField"/>
+
+                <Label text="Proizvođač"/>
+                <TextField fx:id="proizvodacField"/>
+
+                <Label text="Količina"/>
+                <TextField fx:id="kolicinaField"/>
+
+                <Label text="Tip opreme"/>
+                <ComboBox fx:id="opremaTypeCombo"/>
+
+                <Label text="Vrsta gym-a"/>
+                <ComboBox fx:id="vrstaGymCombo"/>
+
+                <HBox spacing="10">
+
+                    <Button text="Spremi"
+                            onAction="#save"
+                            style="-fx-background-color:#16a34a;
+                                   -fx-text-fill:white;"/>
+
+                    <Button text="Update"
+                            onAction="#update"
+                            style="-fx-background-color:#2563eb;
+                                   -fx-text-fill:white;"/>
+
+                </HBox>
+
+                <Button text="Obriši"
+                        onAction="#delete"
+                        style="-fx-background-color:#dc2626;
+                               -fx-text-fill:white;"/>
+
+                <Separator/>
+
+                <Label text="Info:" style="-fx-font-weight:bold;"/>
+                <Label text="Oprema se može povezivati s Gym-ovima." wrapText="true"/>
+
+            </VBox>
+
+        </HBox>
+
+    </center>
+
+</BorderPane>

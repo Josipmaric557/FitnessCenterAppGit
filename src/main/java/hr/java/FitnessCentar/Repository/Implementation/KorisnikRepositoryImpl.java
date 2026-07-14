@@ -80,6 +80,27 @@ public class KorisnikRepositoryImpl implements KorisnikRepository {
     }
 
     @Override
+    public Optional<Korisnik> findByUsername(String username) throws Exception {
+
+        try (Connection conn = DB_Connection.getInstance();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "SELECT * FROM get_korisnik_by_username(?)")) {
+
+            stmt.setString(1, username);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+
+                if (rs.next()) {
+                    return Optional.of(map(rs));
+                }
+            }
+
+        }
+
+        return Optional.empty();
+    }
+
+    @Override
     public List<Korisnik> findAll() throws Exception {
         try(Connection conn = DB_Connection.getInstance();
             PreparedStatement stmt = conn.prepareStatement("select * from get_all_korisnik()")){
@@ -102,8 +123,6 @@ public class KorisnikRepositoryImpl implements KorisnikRepository {
                 return 1;
             case Admin:
                 return 2;
-            case Trener:
-                return 3;
             default:
                 throw new IllegalArgumentException("Nepoznata vrijednost: " + u);
         }

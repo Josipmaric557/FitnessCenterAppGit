@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="700" prefWidth="1200" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hr.java.FitnessCentar.Controllers.GymKategorijaController">
+
+<!-- TOP -->
+
+<top>
+
+    <VBox>
+
+
+
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color:#1e293b;">
+
+            <padding>
+                <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+
+            <Label style="-fx-text-fill:white;                           -fx-font-size:22px;                           -fx-font-weight:bold;" text="Fitness Centar - Upravljanje kategorijama" />
+
+        </HBox>
+
+    </VBox>
+
+</top>
+
+<!-- CENTER -->
+
+<center>
+
+    <HBox spacing="20">
+
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
+
+        <!-- LEFT PANEL -->
+
+        <VBox prefWidth="750" spacing="15" style="-fx-background-color:white;                      -fx-border-color:#dcdcdc;                      -fx-border-radius:8;                      -fx-background-radius:8;">
+
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Label style="-fx-font-size:20px;                           -fx-font-weight:bold;" text="Pregled gymova" />
+
+            <TextField fx:id="searchGymField" promptText="Pretraži gym po nazivu..." />
+
+            <TableView fx:id="gymTableView" VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="idColumn" prefWidth="60" text="ID" />
+
+                    <TableColumn fx:id="nazivColumn" prefWidth="65.0" text="Naziv" />
+
+                    <TableColumn fx:id="adresaColumn" prefWidth="79.0" text="Adresa" />
+
+                    <TableColumn fx:id="gradColumn" prefWidth="94.0" text="Grad" />
+
+                    <TableColumn fx:id="radnoVrijemeColumn" minWidth="0.0" prefWidth="118.0" text="Radno vrijeme" />
+
+                    <TableColumn fx:id="cijenaClanarineColumn" minWidth="0.0" prefWidth="92.0" text="Članarina" />
+
+                    <TableColumn fx:id="ukupnaPovrsinaColumn" prefWidth="74.0" text="Površina" />
+
+                    <TableColumn fx:id="fotoColumn" minWidth="5.0" prefWidth="119.0" text="Slika" />
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+        <!-- RIGHT PANEL -->
+
+        <VBox prefWidth="400" spacing="20" style="-fx-background-color:white;                      -fx-border-color:#dcdcdc;                      -fx-border-radius:8;                      -fx-background-radius:8;">
+
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Label style="-fx-font-size:20px;                           -fx-font-weight:bold;" text="Dodjela kategorije gym-u" />
+
+            <Separator />
+
+            <VBox spacing="10">
+
+                <Label text="Odaberi kategoriju" />
+
+                <ComboBox fx:id="kategorijaComboBox" prefWidth="320" />
+
+            </VBox>
+
+            <HBox spacing="10">
+
+                <Button fx:id="assignButton" onAction="#assignButtonA" prefWidth="160" style="-fx-background-color:#16a34a;                                -fx-text-fill:white;                                -fx-font-weight:bold;" text="Dodijeli kategoriju" />
+
+                <Button fx:id="removeButton" onAction="#removeButtonA" prefWidth="160" style="-fx-background-color:#dc2626;                                -fx-text-fill:white;                                -fx-font-weight:bold;" text="Ukloni kategoriju" />
+
+            </HBox>
+
+            <Separator />
+
+            <Label style="-fx-font-size:16px;                           -fx-font-weight:bold;" text="Kategorije odabranog gym-a" />
+
+            <ListView fx:id="gymKategorijaListView" VBox.vgrow="ALWAYS" />
+
+            <Separator />
+
+            <VBox spacing="8">
+
+                <Label style="-fx-font-size:16px;                               -fx-font-weight:bold;" text="Drag Drop" />
+
+                <Label style="-fx-text-fill:#64748b;" text="Povuci kategoriju i ispusti na gym." wrapText="true" />
+
+            </VBox>
+
+        </VBox>
+
+    </HBox>
+
+</center>
+
+
+</BorderPane>

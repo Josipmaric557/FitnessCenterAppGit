@@ -21,7 +21,7 @@ public class GymProgramTreningaService {
         repo.removeProgramTreningaFromGym(GymID, ProgramTreningaID);
     }
 
-    public List<programTreninga> getOpremaByGymId(int GymID) throws Exception {
+    public List<programTreninga> getProgramTreningaByGymId(int GymID) throws Exception {
         return repo.getProgramTreningaByGym(GymID);
     }
 }

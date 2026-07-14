@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity"
+            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hr.java.FitnessCentar.Controllers.LoginController"
+               >
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #1A1C2D;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/hr/java/FitnessCenter/View/images/logo.png" />
+               </image>
+               <effect>
+                  <Bloom />
+               </effect>
+            </ImageView>
+            <Label layoutX="75.0" layoutY="336.0" text="Izradio: Josip Marić" textFill="#8a7a7a" />
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="80.0" layoutY="38.0" text="Welcome, please login" textFill="#385380">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="127.0" text="Username">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="210.0" text="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button onAction="#login" layoutX="68.0" layoutY="312.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: #385380;" text="Submit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="passwordField" layoutX="112.0" layoutY="208.0" />
+            <TextField fx:id="usernameField" layoutX="112.0" layoutY="125.0" />
+            <Hyperlink onAction="#openRegister" layoutX="68.0" layoutY="264.0" style="-fx-underline: true;" text="Click here to regsiter, if you have not" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
